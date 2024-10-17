@@ -4,7 +4,8 @@
     "jsxImportSource": "@hono/hono/jsx"
   },
   "tasks": {
-    "dev": "deno run --watch main.ts"
+    "dev": "deno run --watch main.ts",
+    "prod": "deno run --allow-net main.tsx"
   },
   "imports": {
     "@hono/hono": "jsr:@hono/hono@^4.6.5",
