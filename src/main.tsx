@@ -1,13 +1,20 @@
 import { Hono } from "@hono/hono";
-import "jsr:@std/dotenv/load";
 import type { FC } from "@hono/hono/jsx";
+import { Style } from "@hono/hono/css";
+
 import constants from "./constants.ts";
+import "jsr:@std/dotenv/load";
 
 const app = new Hono();
 
 const Layout: FC = (props) => {
     return (
         <html>
+            <head>
+                <Style>
+                    {constants.GLOBAL_CSS}
+                </Style>
+            </head>
             <body>{props.children}</body>
         </html>
     );
@@ -48,7 +55,7 @@ app.get("/", async (c) => {
     return c.html(
         <Layout>
             <Submissions submissions={submissions} />
-            <form>
+            <form class="href-buttons">
                 <button formaction="/submit" style="margin-right:10px;">
                     Submit your script
                 </button>
