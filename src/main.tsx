@@ -1,19 +1,19 @@
 import { Hono } from "@hono/hono";
 import type { FC } from "@hono/hono/jsx";
-import { Style } from "@hono/hono/css";
+import { serveStatic } from '@hono/hono/deno'
 
 import constants from "./constants.ts";
 import "jsr:@std/dotenv/load";
 
 const app = new Hono();
 
+app.use('/static/*', serveStatic({ root: './' }))
+
 const Layout: FC = (props) => {
     return (
         <html>
             <head>
-                <Style>
-                    {constants.GLOBAL_CSS}
-                </Style>
+                <link rel="stylesheet" href="/static/css/styles.css"/>
             </head>
             <body>{props.children}</body>
         </html>
