@@ -1,5 +1,7 @@
 # Thelio
 
+![](https://files.catbox.moe/qu2qvy.png)
+
 A very plain and simple web app dealing with HTML form data and using a NoSQL database to
 store the data. This software is more of a proof of concept kind of thing than an actual
 web app.
